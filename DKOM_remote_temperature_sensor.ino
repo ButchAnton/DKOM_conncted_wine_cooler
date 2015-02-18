@@ -42,6 +42,12 @@ void setup(void) {
 
 void loop(void) {
 
+  // Send the time in milliseconds since power on.
+
+  Serial.print("TIME: ");
+  Serial.print(millis());
+  Serial.print(",");
+
   // Read the analog value of the temperature pin.
 
   tempReading = analogRead(tempPin);
@@ -71,7 +77,8 @@ void loop(void) {
   // Serial.print(temperatureF); Serial.println(" degrees F");
 
   Serial.print("TEMP: ");
-  Serial.println(temperatureF);
+  Serial.print(temperatureF);
+  Serial.print(",");
 
   // Read the state of the switch.
 
@@ -79,7 +86,7 @@ void loop(void) {
 
   Serial.print("DOOR: ");
 
-  if (switchState == HIGH) {
+  if (HIGH == switchState) {
     Serial.println("OPEN");
   } else {
     Serial.println("CLOSED");
